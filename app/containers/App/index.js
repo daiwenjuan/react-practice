@@ -1,7 +1,19 @@
 /**
  *  Created by daiwenjuan on 17/9/21 下午5:57.
  */
-import  React from 'react'
-export default function () {
-  return <div>App-index</div>
+import React, { PureComponent } from 'react'
+
+export default class App extends PureComponent {
+
+  constructor (props) {
+    super(props)
+  }
+
+  render () {
+    return (
+      <div>
+        {'app'}
+      </div>
+    )
+  }
 }

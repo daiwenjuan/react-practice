@@ -10,6 +10,7 @@ import {
 
 const rootReducer = combineReducers({
   routing,
+  config: (state = {}) => state,
 })
 
 export default rootReducer
