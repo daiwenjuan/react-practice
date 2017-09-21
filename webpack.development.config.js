@@ -8,7 +8,7 @@ const OpenBrowserPlugin = require('open-browser-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
-const PORT = 9999
+const PORT = 1234
 
 module.exports = {
   entry: {
@@ -68,14 +68,10 @@ module.exports = {
     }),
     // 提取css
     new ExtractTextPlugin('vendor.[hash].css'),
-    // 根据入口文件，提取重复引用的公共代码类库，打包到单独文件中
-    // new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor', // 入口文件名
       filename: 'vendor.bundle.js', // 打包后的文件名
     }),
-    /* 压缩优化代码开始  可以关掉*/
-    // new webpack.optimize.UglifyJsPlugin({minimize: true}),
     /* 压缩优化代码结束*/
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'app/index.html'),

@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack-dev-server --config ./webpack.development.config.js --process --hot --inline",
+    "build": "webpack --config ./webpack.product.config.js"
   },
   "repository": {
     "type": "git",
@@ -48,6 +49,7 @@
     "nyc": "~7.0.0",
     "postcss-loader": "~0.9.1",
     "prepare-commit-msg-dianwoda": "^0.2.1",
+    "react": "^15.6.1",
     "react-addons-test-utils": "~15.2.1",
     "react-hot-loader": "~1.3.0",
     "redux-ava": "~2.1.0",
@@ -78,7 +80,6 @@
     "open-browser-webpack-plugin": "~0.0.2",
     "rc-queue-anim": "^0.12.6",
     "rc-tween-one": "~0.8.5",
-    "react": "~15.3.2",
     "react-copy-to-clipboard": "~4.2.3",
     "react-dom": "~15.2.1",
     "react-images": "~0.4.11",

@@ -1,23 +1,11 @@
 /**
  *  Created by daiwenjuan on 17/9/21 下午5:23.
  */
-/*
- * @Author: duxianwei
- * @Date: 2017-08-07 20:10:37
- * @Last Modified by: duxianwei
- * @Last Modified time: 2017-08-11 11:54:11
- */
-
 const webpack = require('webpack')
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const OpenBrowserPlugin = require('open-browser-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const fs = require('fs-extra')
-// const casProxy = require('./proxy');
-// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
-
-// const PORT = 3010
 
 module.exports = {
   entry: {
@@ -86,20 +74,14 @@ module.exports = {
       name: 'vendor.[hash]', // 入口文件名
       filename: 'vendor.[hash].bundle.js', // 打包后的文件名
     }),
-    // 为组件分配id
-    // new webpack.optimize.OccurrenceOrderPlugin(),
     /* 压缩优化代码开始  可以关掉*/
     new webpack.optimize.UglifyJsPlugin({minimize: true}),
     /* 压缩优化代码结束*/
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'app/index.html'),
     }),
-    // 分析代码
-    // new BundleAnalyzerPlugin({ analyzerPort: 8188 }),
   ],
 }
 
 fs.copy('./app/images', './dist/images')
 fs.copy('./app/iconfont', './dist/iconfont')
-// CopyDir({ from: './app/images', to: './dist/images' })
-// CopyDir('./app/iconfont', './dist/iconfont')
