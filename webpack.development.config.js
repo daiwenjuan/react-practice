@@ -76,7 +76,7 @@ module.exports = {
       template: path.join(__dirname, 'app/index.html'),
     }),
     new OpenBrowserPlugin({
-      url: `http://localhost:${PORT}/#/login`,
+      url: `http://localhost:${PORT}/`,
     }),
     // 分析代码
     //new BundleAnalyzerPlugin({analyzerPort: 8188}),
