@@ -12,6 +12,7 @@ const PORT = 1234
 module.exports = {
   entry: {
     js: './app/client.js',
+    /* vendor :把一些第三方的库打包到wendor.js文件中*/
     vendor: [
       'react', 'classnames', 'react-router', 'react-dom',
     ],
@@ -22,7 +23,11 @@ module.exports = {
     chunkFilename: '[name].js',
   },
   resolve: {
+    /*自动扩展文件后缀名，意味着我们require模块可以省略不写后缀名*/
     extensions: ['', '.js', '.json'],
+    /**
+     * 模块别名定义，方便后续直接引用别名，无须多写长长的地址 例如：后续直接 require('components') 即可
+     */
     alias: {
       components: __dirname + '/app/components',
       actions: __dirname + '/app/actions',
