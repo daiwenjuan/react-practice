@@ -1,8 +1,35 @@
 .login {
-  background-color : red;
-  :global {
+  max-width  : 1000px;
+  max-height : 1000px;
+  .login-wrapper {
+    display         : flex;
+    flex-direction  : column;
+    justify-content : center;
+    align-items     : center;
+    .title {
+      color      : #FF8179;
+      font-size  : 20px;
+      margin-top : 20px;
+    }
     .username {
-      color : red;
+      margin-top : 20px;
+      span {
+        width      : 50px;
+        text-align : left;
+      }
+    }
+    .password {
+      margin-top : 20px;
+      span {
+        width      : 50px;
+        text-align : left;
+      }
+    }
+    .btn-commit {
+      .ant-btn {
+        margin-top : 20px;
+      }
     }
   }
+  
 }

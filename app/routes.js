@@ -18,7 +18,7 @@ function isLogin (nextState, replaceState) {
 }
 const Login = (location, cb) => {
   require.ensure([], require => {
-    cb(null, require('./containers/App/login').default)
+    cb(null, require('./containers/App/account/login').default)
   }, 'login')
 }
 
