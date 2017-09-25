@@ -10,15 +10,16 @@ import App from './containers/App'
 
 import Welcome from './pages/welcome'
 
-function isLogin (nextState, replaceState) {
+function isLogin(nextState, replaceState) {
   const token = sessionStorage.getItem('token')
   if (!token) {
     replaceState('/login')
   }
 }
+
 const Login = (location, cb) => {
   require.ensure([], require => {
-    cb(null, require('./containers/App/account/login').default)
+    cb(null, require('./containers/App/login').default)
   }, 'login')
 }
 
