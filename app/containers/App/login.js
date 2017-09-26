@@ -2,20 +2,20 @@
  *  Created by daiwenjuan on 17/9/21 下午5:38.
  */
 import React, { PureComponent } from 'react'
-import { Spin, message, Form, Icon, Input, Button, Row, Col } from 'antd'
+import { Spin, Form, Icon, Input, Button, Row, Col } from 'antd'
 import { hashHistory } from 'react-router'
 
 const FormItem = Form.Item
 @Form.create()
 export default class Login extends PureComponent {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
-      loading : false,
+      loading: false,
     }
   }
 
-  checkName(rule, value, callback) {
+  checkName (rule, value, callback) {
     if (value) {
 
     }
@@ -26,35 +26,15 @@ export default class Login extends PureComponent {
     e.preventDefault()
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        //this.state.loading = true
-        // this.setState({loading: true})
         Object.keys(values).map((key) => values[key] = (values[key] && values[key].trim()))
-        /* this.props.dispatch(fetchLogin(values, (res) => {
-          if (res.status == 1) {
-            const query = this.props.form.getFieldsValue()
-            global.$GLOBALCONFIG.staff = res.data.user
-            sessionStorage.setItem('staff', JSON.stringify({ ...res.data.user }))
-            sessionStorage.setItem('username', query.username)
-            // sessionStorage.setItem('userName', res.data.user.userName)
-            // sessionStorage.setItem('userpwd', query.password)
-            sessionStorage.setItem('token', res.data.token)
-            sessionStorage.setItem('isLeftNavMini', false)
-            hashHistory.push('/')
-          }
-        }, (res) => {
-          message.warning(res.msg)
-          this.setState({
-            loading: false
-          })
-        }))*/
         sessionStorage.setItem('token', 'dwj')
         hashHistory.push('/')
       }
     })
   }
 
-  render() {
-    const { getFieldDecorator } = this.props.form
+  render () {
+    const {getFieldDecorator} = this.props.form
     return ( <div className='login'>
       <div className='sy_top'/>
       <div className='btmLogin'>
@@ -66,9 +46,9 @@ export default class Login extends PureComponent {
                 <Form onSubmit={this.handleSubmit}>
                   <FormItem hasFeedback>
                     {getFieldDecorator('username', {
-                      rules : [
-                        { required : true, message : '请输入用户名' },
-                        { validator : this.checkName }
+                      rules: [
+                        {required: true, message: '请输入用户名'},
+                        {validator: this.checkName}
                       ]
                     })(
                       <Input
@@ -80,12 +60,12 @@ export default class Login extends PureComponent {
                   </FormItem>
                   <FormItem hasFeedback>
                     {getFieldDecorator('password', {
-                      rules : [
-                        { required : true, message : '请输入密码' }
+                      rules: [
+                        {required: true, message: '请输入密码'}
                       ]
                     })(
                       <Input
-                        prefix={<Icon type='lock' style={{ fontSize : 13 }}/>}
+                        prefix={<Icon type='lock' style={{fontSize: 13}}/>}
                         placeholder='请输入密码'
                         type='password'
                       />
