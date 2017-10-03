@@ -8,27 +8,27 @@ import { message } from 'antd'
 
 import Header from './header'
 import Footer from './footer'
-import LeftNav from './rightAside'
+import LeftNav from './leftNav'
 import RightAside from './rightAside'
 import TabList from './tabList'
 import Extra from './extra'
 
 export default class App extends PureComponent {
 
-  constructor (props) {
+  constructor(props) {
     super(props)
-    this.setState({
-      pageHeight: 0,
-      isLeftNavMini: false
-    })
+    this.state = {
+      pageHeight : 0,
+      isLeftNavMini : false
+    }
   }
 
   isLeftNavMini = (val) => {
 
   }
 
-  render () {
-    const {location, children} = this.props
+  render() {
+    const { location, children } = this.props
     return (
       <div id="container" className="effect easeInOutBack mainnav-lg aside-bright">
         <Header/>
